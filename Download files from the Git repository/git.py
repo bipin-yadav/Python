@@ -4,7 +4,7 @@ import base64
 
 def get_sha_for_tag(repository, tag):
     """
-    Returns a commit PyGithub object for the specified repository and tag.
+    Returns a commit object for the specified repository and tag.
     """
     branches = repository.get_branches()
     matched_branches = [match for match in branches if match.name == tag]
@@ -44,14 +44,12 @@ def download_directory(repository, sha, server_path):
 
 github = Github("bipin-yadav", "gh6293@Wipro")
 user = github.get_user()
+print user
 repository = user.get_repo('bipin-yadav.github.io')
-
-file_content = repository.get_contents('index.html')
+print repository
 
 branch_or_tag_to_download = raw_input("Branch or tag to download: ")
 sha = get_sha_for_tag(repository, branch_or_tag_to_download)
-print sha
 
 directory_to_download = raw_input("Directory to download: ")
 download_directory(repository, sha, directory_to_download)
-
