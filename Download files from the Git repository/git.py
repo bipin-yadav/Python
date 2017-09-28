@@ -42,7 +42,7 @@ def download_directory(repository, sha, server_path):
                 print Exception
                 print exc
 
-github = Github("bipin-yadav", "gh6293@Wipro")
+github = Github("bipin-yadav", "*********")
 user = github.get_user()
 print user
 repository = user.get_repo('bipin-yadav.github.io')
